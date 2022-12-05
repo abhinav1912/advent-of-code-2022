@@ -10,5 +10,11 @@ def value(s):
     return ord(s) - ord("A") + 27
 
 with open("./day_3_input.txt", "r") as file:
-    ans = sum([value(intersection(x.strip('\n'))) for x in file.readlines()])
+    # ans = sum([value(intersection(x.strip('\n'))) for x in file.readlines()])
+    data = [x.strip('\n') for x in file.readlines()]
+    ans = 0
+    for i in range(0, len(data), 3):
+        x = set(data[i]) & set(data[i+1]) & set(data[i+2])
+        for el in x:
+            ans += value(el)
     print(ans)

@@ -1,7 +1,8 @@
 def check(x, y):
-    return ((x[0] >= y[0]) and (x[1] <= y[1]))
+    return ((int(x[0]) >= int(y[0])) and (int(x[1]) <= int(y[1])))
 def intersect(s):
-    x,y = s[0].split("-"), s[1].split("-")
+    x,y = [int(i) for i in s[0].split("-")], [int(i) for i in s[1].split("-")]
+    # print(x,y)
     return (check(x,y) or check(y,x))
 
 with open("./day_4_input.txt", "r") as file:

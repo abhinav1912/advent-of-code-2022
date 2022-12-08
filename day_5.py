@@ -12,8 +12,11 @@ for line in file.readlines():
     op = re.findall(com, line)
     if op != []:
             op = op[0]
-            for i in range(int(op[0])):
-                    mem[int(op[2])-1].append(mem[int(op[1])-1].pop())
+            mem[int(op[2])-1] += mem[int(op[1])-1][-int(op[0]):]
+            mem[int(op[1])-1][-int(op[0]):] = []
+            # for i in range(int(op[0])):
+            #         mem[int(op[2])-1].append(mem[int(op[1])-1].pop())
+                    
 
 out = ""
 for i in range(9):
